@@ -1,4 +1,4 @@
-package kr.or.moth.guestbook.test;
+package kr.or.moth.guestbooktest;
 
 import java.util.Date;
 
@@ -10,6 +10,7 @@ import kr.or.moth.guestbook.dao.GuestbookDao;
 import kr.or.moth.guestbook.dto.Guestbook;
 
 public class GuestbookDaoTest {
+	
 	public static void main(String[] args) {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class); 
 		GuestbookDao guestbookDao = ac.getBean(GuestbookDao.class);
