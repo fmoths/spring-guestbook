@@ -30,15 +30,10 @@ ${guestbook.regdate }<br>
 		<a href="list?start=${pageIndex}">${status.index +1 }</a>&nbsp; &nbsp;
 	</c:forEach>
 	<br>
-	<!-- <form method="post" action="write">
-		name : <input type="text" name="name"><br>
-		<textarea name="content" cols="60" rows="6"></textarea>
-		<br> <input type="submit" value="등록">
-	</form> -->
 	
 	<!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" id="modal_show">
-        JQUERY를 이용한 모달 열기
+        방명록 글남기기
     </button>
  
     <!-- Modal -->
@@ -52,12 +47,16 @@ ${guestbook.regdate }<br>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                <!-- ajax로 바꿈?  -->
+                    <form method="post" action="write" id="writeForm">
+                    	<label name="name">name: </label>
+						<input type="text" name="name"><br>
+						<textarea name="content" cols="60" rows="6"></textarea>
+					</form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-primary" id="close_modal">다른 방식으로 모달 닫기</button>
+                    <button type="submit" class="btn btn-primary" form="writeForm">저장</button>
+                    <button type="button" class="btn btn-primary" id="close_modal">닫기</button>
                 </div>
             </div>
         </div>
@@ -68,21 +67,6 @@ ${guestbook.regdate }<br>
     <script src="/webjars/bootstrap/4.4.1/dist/js/bootstrap.min.js" type="text/javascript"></script>
 
     <!--custom js -->
-    <script type="text/javascript">
-	    $(function () {
-	      console.log("jQuery ready");
-	    });
- 	</script>
-	<script>
-        $(document).ready(function() {
-            $("#modal_show").click(function() {
-                $("#exampleModal").modal("show");
-            });
- 
-            $("#close_modal").click(function() {
-                $("#exampleModal").modal("hide");
-            });
-        });
-    </script>
+	<script src="/js/app/list.js" type="text/javascript"></script>
 </body>
 </html>
