@@ -26,7 +26,6 @@ ${guestbook.regdate }<br>
 	</c:forEach>
 	<br>
 <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-<button type="button" class="btn btn-primary">Primary</button>
 	<c:forEach items="${pageStartList}" var="pageIndex" varStatus="status">
 		<a href="list?start=${pageIndex}">${status.index +1 }</a>&nbsp; &nbsp;
 	</c:forEach>
@@ -38,48 +37,52 @@ ${guestbook.regdate }<br>
 	</form> -->
 	
 	<!-- Button trigger modal -->
-	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-		Launch demo modal
-	</button>
-
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	  <div class="modal-dialog" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        ...
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	
-	<script type="text/javascript">
-		$('#myModal').on('shown.bs.modal', function () {
-			$('#myInput').focus()
-		})
-	</script>
-	
+    <button type="button" class="btn btn-primary" id="modal_show">
+        JQUERY를 이용한 모달 열기
+    </button>
+ 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="close_modal">다른 방식으로 모달 닫기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
 	<!--js, jquery -->
-    <script src="/webjars/jquery/3.4.1/dist/jquery.min.js"></script>
-    <script src="/webjars/bootstrap/4.4.1/dist/js/bootstrap.min.js"></script>
+    <script src="/webjars/jquery/3.4.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="/webjars/bootstrap/4.4.1/dist/js/bootstrap.min.js" type="text/javascript"></script>
 
     <!--custom js -->
     <script type="text/javascript">
 	    $(function () {
 	      console.log("jQuery ready");
 	    });
-	  </script> 
-
-    <script src="/js/app/main.js"></script>
+ 	</script>
+	<script>
+        $(document).ready(function() {
+            $("#modal_show").click(function() {
+                $("#exampleModal").modal("show");
+            });
+ 
+            $("#close_modal").click(function() {
+                $("#exampleModal").modal("hide");
+            });
+        });
+    </script>
 </body>
 </html>
