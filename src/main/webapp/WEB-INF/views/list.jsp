@@ -20,8 +20,8 @@
             <thead class="thead-strong">
                 <tr>
                     <th>게시글번호</th>
-                    <th>제목</th>
                     <th>작성자</th>
+                    <th>내용</th>
                     <th>최종수정일</th>
                 </tr>
             </thead>
@@ -36,13 +36,26 @@
             </c:forEach>
             </tbody>
         </table>
-    </div>
     
-	<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-		<c:forEach items="${pageStartList}" var="pageIndex" varStatus="status">
-			<a href="list?start=${pageIndex}">${status.index +1 }</a>&nbsp; &nbsp;
-		</c:forEach>
-		<br>
+	    <nav aria-label="Page navigation example">
+		  <ul class="pagination">
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		        <span class="sr-only">Previous</span>
+		      </a>
+		    </li>
+			    <c:forEach items="${pageStartList}" var="pageIndex" varStatus="status">
+					<li class="page-item"><a class="page-link" href="list?start=${pageIndex}">${status.index +1 }</a></li>
+				</c:forEach>
+		    <li class="page-item">
+		      <a class="page-link" href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		        <span class="sr-only">Next</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
 		
 		<!-- Button trigger modal -->
 	    <button type="button" class="btn btn-primary" id="modal_show">
@@ -72,7 +85,6 @@
 							    <label for="content">내용</label>
 							    <textarea class="form-control" name="content" id="content" cols="60" rows="6"></textarea>
 							  </div>
-							
 						</form>
 	                </div>
 	                <div class="modal-footer">
@@ -82,7 +94,7 @@
 	            </div>
 	        </div>
 	    </div>
-</div>
+    </div>
 	
  
 	<!--js, jquery -->
