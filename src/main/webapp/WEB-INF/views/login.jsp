@@ -64,7 +64,14 @@
 							</button>
 						</div>
 					</div>
-
+					<c:if test="${userId eq null}">
+				        <a href="">
+				            <img src="/img/kakao_account_login_btn_medium_wide_ov.png">
+				        </a>
+				    </c:if>
+				    <c:if test="${userId ne null}">
+				        <h1>로그인 성공입니다</h1>
+				    </c:if>
 					<div class="text-center p-t-115">
 						<span class="txt1">
 							Don't have an account?
