@@ -66,7 +66,7 @@
 					</div>
 					<c:if test="${userId eq null}">
 				        <a href="">
-				            <img src="/img/kakao_account_login_btn_medium_wide_ov.png">
+				            <img src="/img/kakao_login_medium_narrow.png">
 				        </a>
 				    </c:if>
 				    <c:if test="${userId ne null}">
