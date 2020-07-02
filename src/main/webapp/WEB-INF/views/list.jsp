@@ -23,6 +23,8 @@
                     <th>작성자</th>
                     <th>내용</th>
                     <th>최종수정일</th>
+                    <th>조회수</th>
+                    <th>추천</th>
                 </tr>
             </thead>
             <tbody id="tbody">
@@ -32,6 +34,8 @@
                     <td>${guestbook.name }</td>
                     <td>${guestbook.content }</td>
                     <td>${guestbook.regdate }</td>
+                    <td>0</td>
+                    <td>0</td>
                 </tr>
             </c:forEach>
             </tbody>
